@@ -44,7 +44,6 @@ let getExpensesMonth = function () {
             sum += +prompt('Во сколько это обойдётся?');
         }
     }
-    console.log(sum);
     return sum;
 };
 
