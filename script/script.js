@@ -24,9 +24,8 @@ start();
 let showTypeOf = function (item) {
     console.log(typeof item);
 };
-showTypeOf(money);
-showTypeOf(income);
-showTypeOf(deposit);
+showTypeOf(money, income, deposit);
+
 
 let expenses = [];
 
