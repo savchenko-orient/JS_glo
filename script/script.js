@@ -1,21 +1,19 @@
 'use strict';
-let money = 4500; //Доход за месяц
-let income = "500"; //Дополнительный доход
-let addExpenses = "Taxi, Car, Girlfriend"; //Расходы
-let deposit = true;
-let mission = 150000; //Какую сумму хочу накопить
-let period = 5; //сколько месяцев
+let money = 4500, 
+     income = "500", 
+     addExpenses = "Taxi, Car, Girlfriend", 
+     deposit = true,
+    mission = 150000, 
+    period = 5,
+    budgetDay = money / 30;
 // Втотое задание
-console.log(typeof money);
-console.log(typeof income);
-console.log(typeof deposit);
+console.log(typeof money, income, deposit);
 
-console.log(addExpenses.split(','));
+console.log(addExpenses.toLowerCase() .split(','));
 
-let budgetDay;
-budgetDay = money / 30;
+
 // console.log(budgetDay);
-//Третье задание
+
 money = prompt('Ваш месячный доход?');
 addExpenses = prompt('Перечислите всевозможные доходы за рассчитываемый переод через запятую',
     'Квартплата, проездной, машина, девушка');
@@ -38,7 +36,7 @@ let getStatusIncome = function () {
         console.log('К сожалению у вас уровень дохода ниже среднего!');
     } else if (budgetDay <= 800) {
         console.log('У вас средний уровень дохода!');
-    } else {
+    } else if(budgetDay >= 1200) {
         console.log('У вас высокий уровень дохода!');
     }
 };
