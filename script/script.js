@@ -1,38 +1,25 @@
 'use strict';
-let money = 4500, 
-     income = "500", 
-     addExpenses = "Taxi, Car, Girlfriend", 
-     deposit = true,
-    mission = 150000, 
+const money = prompt('Ваш месячный доход?'),
+    income = "500",
+    addExpenses = prompt('Перечислите всевозможные доходы за рассчитываемый переод через запятую',
+    'Квартплата, проездной, машина'),
+    deposit = confirm('Есть ли у вас депозит в банке?', 'Да/Нет');
+
+let mission = 150000, 
     period = 5,
     budgetDay = money / 30;
-// Втотое задание
-console.log(typeof money, income, deposit);
 
 console.log(addExpenses.toLowerCase() .split(','));
 
 
-// console.log(budgetDay);
-
-money = prompt('Ваш месячный доход?');
-addExpenses = prompt('Перечислите всевозможные доходы за рассчитываемый переод через запятую',
-    'Квартплата, проездной, машина, девушка');
-deposit = prompt('Есть ли у вас депозит в банке?', 'Да/Нет');
-
-if (deposit === 'Да') {
-    deposit = true;
-} else {
-    deposit = false;
-}
-
-let expenses1, amount1, expenses2, amount2;
-expenses1 = prompt('Введите обязательную статью расходов', 'Путешествия');
-amount1 = prompt('Во сколько это обойдётся?', '150');
-expenses2 = prompt('Введите обязательную статью расходов', 'Еда');
-amount2 = prompt('Во сколько это обойдётся?', '750');
+const
+    expenses1 = prompt('Введите обязательную статью расходов', 'Путешествия'),
+    amount1 = prompt('Во сколько это обойдётся?', '150'),
+    expenses2 = prompt('Введите обязательную статью расходов', 'Еда'),
+    amount2 = prompt('Во сколько это обойдётся?', '750');
 
 let getStatusIncome = function () {
-    if (budgetDay < 300) {
+    if (budgetDay <= 300) {
         console.log('К сожалению у вас уровень дохода ниже среднего!');
     } else if (budgetDay <= 800) {
         console.log('У вас средний уровень дохода!');
