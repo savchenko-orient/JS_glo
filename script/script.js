@@ -1,15 +1,17 @@
 'use strict';
-let isNumber = function (n) {
+const isNumber = function (n) {
     return !isNaN(parseFloat(n)) && isFinite(n);
 };
-let money,
-    start = function () {
-        money = prompt('Ваш месячный доход?');
 
-        while (!isNumber(money)) {
-            money = prompt('Ваш месячный доход?');
+let money;
+
+const start = function () {
+    while (!isNumber(money)) {
+        money = prompt('Ваш месячный доход?');
     }
+
 };
+
 start();
 
 
@@ -30,33 +32,34 @@ let appData = {
             appData.addExpenses = addExpenses.toLocaleLowerCase().split(',');
             appData.deposit = confirm('Есть ли у вас депозит в банке?');          
     },
-    function() {
-        let sum = 0;
-        let question;
-        for (let i = 0; i < 2; i++){
-            question = prompt('Какие обязательные ежемесячные расходы у вас есть?');
-            do {
-                sum = prompt('Во сколько это обойдётся?', 500);
-            }
-            while (isNaN(sum));
+    // function() {
+    //     let sum = 0;
+    //     let question;
+    //     for (let i = 0; i < 2; i++){
+    //         question = prompt('Какие обязательные ежемесячные расходы у вас есть?');
+    //         do {
+    //             sum = prompt('Во сколько это обойдётся?', 500);
+    //         }
+    //         while (isNaN(sum));
 
-            appData.expenses[question] = sum;
-        }
-        return +sum;
-    },
+    //         appData.expenses[question] = sum;
+    //     }
+    //     return +sum;
+    // },
     getExpensesMonth: function () {
-        let sum = 0;
-        
+        let sum = 0,
+            expenses = [];
+
         for (let i = 0; i < 2; i++) {
-            
-            appData.expenses = prompt('Введите обязательную статью расходов');
-            
-            sum += +prompt('Во сколько это обойдётся?');
-            if (!isNumber(sum)) {
-                sum += +prompt('Во сколько это обойдётся?');
+        
+        expenses[i] = prompt('Введите обязательную статью расходов');
+        sum += +prompt('Во сколько это обойдётся?');
+            while (!isNumber(sum)) {
+            sum += prompt('Во сколько это обойдётся?');
             }
         }
-        return sum;
+    return sum;
+
     },
     getAccumulatedMonth: function () {
         return money - appData.expensesMonth;
@@ -72,12 +75,12 @@ let appData = {
         return sum;
     },
     getStatusIncome: function () {
-        if (appData.budgetDay < 300) {
-            return('Ты нищеброд!');
-        } else if (appData.budgetDay <= 800) {
-            return('У вас средний уровень дохода!');
-        } else {
-            return('У вас высокий уровень дохода!');
+    if (appData.budgetDay <= 300) {
+        console.log('К сожалению у вас уровень дохода ниже среднего!');
+    } else if (appData.budgetDay <= 800) {
+        console.log('У вас средний уровень дохода!');
+    } else if(appData.budgetDay >= 1200) {
+        console.log('У вас высокий уровень дохода!');
         }
     },
 };    
