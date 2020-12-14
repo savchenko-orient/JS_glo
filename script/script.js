@@ -47,7 +47,7 @@ let appData = {
     //     return +sum;
     // },
     getExpensesMonth: function () {
-        let sum = 0,
+            let sum = 0,
             expenses = [];
 
         for (let i = 0; i < 2; i++) {
@@ -58,11 +58,18 @@ let appData = {
             sum += prompt('Во сколько это обойдётся?');
             }
         }
-    return sum;
-
+        appData.expenses = sum;
+    
+        for (let item in appData.expenses) {
+            appData.expensesMonth += appData.expenses[item];
+        }
+        return appData.expensesMonth;
+        
     },
-    getAccumulatedMonth: function () {
-        return money - appData.expensesMonth;
+    getBudget: function () {
+        appData.budgetMonth = appData.budget - appData.expensesMonth;
+        appData.budgetDay = appData.budgetMonth / 30;
+        return appData.budgetMonth, appData.budgetDay;
     },
     
     getTargetMonth: function () {
@@ -89,18 +96,14 @@ appData.asking();
 // let expensesAmount =
 appData.getExpensesMonth();
 // let accumulatedMonth =
-appData.getAccumulatedMonth();
+appData.getBudget();
 
 console.log('Расходы за месяц: ' + appData.expensesMonth); 
- 
 
-
-
- 
 appData.getTargetMonth();
-
 // let budgetDay = accumulatedMonth / 30;
-
-
-
 console.log(appData.getStatusIncome());
+
+for (let key in appData){
+    console.log('Наша программа включает в себя данные: ' + key + appData[key]);
+}
