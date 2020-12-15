@@ -47,18 +47,21 @@ let appData = {
     //     return +sum;
     // },
     getExpensesMonth: function () {
-            let sum = 0,
-            expenses = [];
+        let sum = 0,
+            expenses = [],
+            cost = 0;
+
 
         for (let i = 0; i < 2; i++) {
         
         expenses[i] = prompt('Введите обязательную статью расходов');
-        sum += +prompt('Во сколько это обойдётся?');
-            while (!isNumber(sum)) {
-            sum += prompt('Во сколько это обойдётся?');
+        cost = +prompt('Во сколько это обойдётся?');
+            while (!isNumber(cost)) {
+            cost = +prompt('Во сколько это обойдётся?');
             }
         }
-        appData.expenses = sum;
+        sum += cost;
+        appData.expenses += sum;
     
         for (let item in appData.expenses) {
             appData.expensesMonth += appData.expenses[item];
