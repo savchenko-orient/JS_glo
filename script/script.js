@@ -59,9 +59,9 @@ let appData = {
             while (!isNumber(cost)) {
             cost = +prompt('Во сколько это обойдётся?');
             }
+            appData.expenses[expenses] = cost;
         }
-        sum += cost;
-        appData.expenses += sum;
+        
     
         for (let item in appData.expenses) {
             appData.expensesMonth += appData.expenses[item];
