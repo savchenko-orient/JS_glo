@@ -32,9 +32,9 @@ let appData = {
     asking: function () {
 
         if (confirm('Есть ли у вас дополнительный заработок?')) {
-            let itemIncome = +prompt('Какой у вас есть дополнительный заработок?', 'Таксую');
+            let itemIncome = prompt('Какой у вас есть дополнительный заработок?', 'Таксую');
                 while (!isNaN(itemIncome)) {
-                    itemIncome = +prompt('Какой у вас есть дополнительный заработок?', 'Таксую');
+                    itemIncome = prompt('Какой у вас есть дополнительный заработок?', 'Таксую');
                 }
             let cashIncome; 
                 while (!isNumber(cashIncome)) {
@@ -48,9 +48,9 @@ let appData = {
         appData.deposit = confirm('Есть ли у вас депозит в банке?');
         for (let i = 0; i < 2; i++) {
         
-            let expenses = +prompt('Введите обязательную статью расходов', 'Новые лыжи');
+            let expenses = prompt('Введите обязательную статью расходов', 'Новые лыжи');
             while (!isNaN(expenses)) {
-                expenses = +prompt('Введите обязательную статью расходов', 'Новые лыжи');
+                expenses = prompt('Введите обязательную статью расходов', 'Новые лыжи');
             }
             let cost;
             cost = +prompt('Во сколько это обойдётся?', 300);
@@ -114,9 +114,9 @@ if (appData.getTargetMonth() > 0) {
 
 console.log(appData.getStatusIncome());
 
-let first = appData.addExpenses.map(function (val) {
-    const str = val.trim();
-    return str[0] .toUpperCase() + str.sliсe(1);
+const first = appData.addExpenses.map(function (val) {
+    const str = String(val.trim());
+    return str[0].toUpperCase() + str.sliсe(1);
 });
 
 console.log(first());
