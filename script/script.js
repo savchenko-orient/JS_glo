@@ -101,6 +101,7 @@ let appData = {
 };    
 
 appData.asking();
+appData.getInfoDeposit();
 appData.getExpensesMonth();
 appData.getBudget();
 
@@ -115,11 +116,11 @@ if (appData.getTargetMonth() > 0) {
 console.log(appData.getStatusIncome());
 
 const first = appData.addExpenses.map(function (val) {
-    const str = String(val.trim());
-    return str[0].toUpperCase() + str.sliсe(1);
+    const str = val.trim();
+    return str[0].toUpperCase() + str.slice(1);
 });
 
-console.log(first());
+console.log(first.join(', '));
 
 for (let key in appData){
     console.log('Наша программа включает в себя данные: ' + key + ' - ' + appData[key]);
