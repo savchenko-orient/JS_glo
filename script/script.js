@@ -15,7 +15,7 @@ const start = function () {
 
 start();
 
-let appData = {
+const appData = {
     budget: money,
     budgetDay: 0,
     budgetMonth: 0,
